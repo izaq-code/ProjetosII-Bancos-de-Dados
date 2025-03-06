@@ -12,9 +12,7 @@ Explorar técnicas avançadas de **armazenamento, consulta e processamento de da
 
 ## 📂 Estrutura do Repositório  
 ```
-/dados                 # Conjunto de dados utilizados no projeto  
-/scripts              # Scripts SQL e Python para análise e manipulação dos dados  
-/notebooks            # Notebooks Jupyter com as análises e visualizações  
+/scripts              # Scripts SQL para análise e manipulação dos dados  
 /docs                 # Documentação e relatórios do projeto  
 ```
 
