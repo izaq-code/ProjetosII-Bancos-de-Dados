@@ -12,11 +12,10 @@ Explorar técnicas avançadas de **armazenamento, consulta e processamento de da
 
 ## 📂 Estrutura do Repositório  
 ```
-/scripts              # Scripts SQL para análise e manipulação dos dados  
-/docs                 # Documentação e relatórios do projeto  
+/database              # Scripts SQL para análise e manipulação dos dados  
+/docs                  # Documentação e modelos do projeto  
 ```
 
 ## 🚀 Funcionalidades  
 ✔ Modelagem e normalização de bancos de dados  
 ✔ Consultas otimizadas para volumes de dados  
-✔ Integração entre bancos relacionais
