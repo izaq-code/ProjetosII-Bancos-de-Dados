@@ -87,9 +87,9 @@ Os projetos possuem **status**, como:
 - id_cliente (FK)
 - nome
 - descricao
-- data_inicio
-- data_prevista_conclusao
-- data_real_conclusao
+- dt_inicio
+- dt_prev_conclusao
+- dt_real_conclusao
 - status
 - custo_estimado
 - orcamento_definido
@@ -105,9 +105,9 @@ Os projetos possuem **status**, como:
 - id_projeto (FK)
 - nome
 - descricao
-- data_inicio
-- data_fim_prevista
-- data_fim_real
+- dt_inicio
+- dt_fim_prev
+- dt_fim_real
 - status
 ```
 
@@ -133,8 +133,8 @@ Os projetos possuem **status**, como:
 - id_cliente (FK)
 - id_projeto (FK)
 - descricao
-- data_abertura
-- data_fechamento
+- dt_abertura
+- dt_fechamento
 - status
 ```
 
@@ -148,8 +148,8 @@ Os projetos possuem **status**, como:
 - fornecedor
 - nome_software
 - custo
-- data_compra
-- data_validade
+- dt_compra
+- dt_validade
 ```
 
 ## **7️⃣ Documentos do Projeto**
