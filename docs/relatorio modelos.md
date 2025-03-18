@@ -144,15 +144,24 @@ Os projetos possuem **status**, como:
 
 ```yaml
 - id_licenca (PK)
-- id_projeto (FK)
-- fornecedor
-- nome_software
+- id_software (FK)
 - custo
 - dt_compra
 - dt_validade
 ```
 
-## **7️⃣ Documentos do Projeto**
+## **7️⃣ Software**
+
+📌 Representa as licenças de software adquiridas para os projetos.
+
+```yaml
+- id_sofeware (PK)
+- id_projeto (FK)
+- fornecedor
+- nome_software
+```
+
+## **8️⃣ Documentos do Projeto**
 
 📌 Representa documentos anexados aos projetos.
 

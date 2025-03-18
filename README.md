@@ -8,7 +8,7 @@ Explorar técnicas avançadas de **armazenamento, consulta e processamento de da
 ## 🔧 Tecnologias Utilizadas  
 - **Banco de Dados Relacional**: MySQL
 - **Linguagens**: SQL.
-- **Ferramentas**: BRmodelos.
+- **Ferramentas**: BRmodelos, Draw.io.
 
 ## 📂 Estrutura do Repositório  
 ```
