@@ -113,8 +113,8 @@ Esse modelo mostra as entidades, atributos e os relacionamentos entre as tabelas
 - [Tipos de Dados MySQL](https://dev.mysql.com/doc/refman/8.0/en/data-types.html)
 
 ### 🎥 Vídeos
-- [Curso de SQL - Curso em Vídeo (MySQL)](https://www.youtube.com/playlist?list=PLHz_AreHm4dkZ0hgu4C2nLAw4OQ4s6r2X)
-- [SQL para Iniciantes (CFBCursos)](https://www.youtube.com/playlist?list=PLx4x_zx8csUgQUj0v3G8xW4d7fpkTE3cN)
+- [Curso de SQL - Curso em Vídeo (MySQL)](https://www.youtube.com/watch?v=Ofktsne-utM&list=PLHz_AreHm4dkBs-795Dsgvau_ekxg8g1r)
+- [SQL para Iniciantes (CFBCursos)](https://www.youtube.com/watch?v=adIIAEc3Q04&list=PLx4x_zx8csUgQUjExcssR3utb3JIX6Kra)
 
 ---
 
