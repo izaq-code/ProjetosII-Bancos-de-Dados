@@ -1,4 +1,3 @@
--- Usar o banco
 USE al2f;
 
 -- Inserir dados em status
