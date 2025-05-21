@@ -32,7 +32,7 @@ INSERT INTO funcionario (nome, telefone, salario_hora, email, nome_cargo) VALUES
 ('Ana Souza', '31988880004', 40.00, 'ana@empresa.com', 'Designer'),
 ('Lucas Rocha', '31988880005', 35.00, 'lucas@empresa.com', 'Suporte Técnico');
 
--- Inserir dados em projeto com caminhos do GitHub
+-- Inserir dados em projeto 
 INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, status, diretorio_projeto, id_cliente) VALUES
 ('https://github.com/empresa/vendas/docs/requisitos.docx', 'Sistema de Vendas Online', '2024-01-10', NULL, 'Em andamento', 'https://github.com/empresa/vendas', 1),
 ('https://github.com/empresa/delivery/docs/escopo.docx', 'Aplicativo de Delivery', '2024-02-15', NULL, 'Aberto', 'https://github.com/empresa/delivery', 2),
