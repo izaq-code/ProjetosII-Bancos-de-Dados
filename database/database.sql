@@ -6,6 +6,7 @@ USE al2f;
 CREATE TABLE cliente (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     contato VARCHAR(15),
+    orcamento_disponivel DECIMAL(8,2),
     nome VARCHAR(255) NOT NULL
 ) ENGINE = InnoDB;
 

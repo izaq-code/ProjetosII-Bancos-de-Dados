@@ -49,10 +49,11 @@ LEFT JOIN
 WHERE
     f.email IS NOT NULL AND f.email <> '';
 
---5. Quais projetos estão com status "Em andamento", exibindo a descrição do projeto e o nome do cliente, além de detalhes de etapas ou responsáveis?
+--5. Quais projetos estão com status "Em andamento", exibindo a descrição do projeto, o nome do cliente, o orçamento disponível e os detalhes das etapas ou dos responsáveis?
 SELECT
     p.descricao AS Descricao_Projeto,
     cli.nome AS Nome_Cliente,
+    cli.orcamento AS Orcamento_Disponivel,
     ep.nome AS Nome_Etapa,
     ep.descricao AS Descricao_Etapa,
     ep.data_inicio AS Data_Inicio_Etapa,
@@ -72,10 +73,13 @@ LEFT JOIN
 WHERE
     p.status = 'Em andamento';
 
---6. Quais são os projetos cancelados e quais funcionários atuaram em alguma etapa desses projetos, considerando também a data e o status dessas etapas?
+
+--6. Quais são os projetos cancelados, quem foram os funcionários que participaram de suas etapas, e qual era o orçamento disponível do cliente responsável por cada projeto?
 SELECT
     p.descricao AS Descricao_Projeto,
     p.status AS Status_Projeto,
+    cli.nome AS Nome_Cliente,
+    cli.orcamento AS Orcamento_Disponivel,
     f.nome AS Nome_Funcionario,
     f.nome_cargo AS Cargo_Funcionario,
     ep.nome AS Nome_Etapa,
@@ -87,11 +91,14 @@ SELECT
 FROM
     projeto AS p
 JOIN
+    cliente AS cli ON p.id_cliente = cli.id_cliente
+JOIN
     etapa_projeto AS ep ON p.id_projeto = ep.id_projeto
 JOIN
     funcionario AS f ON ep.id_funcionario = f.id_funcionario
 WHERE
     p.status = 'Cancelado';
+
 
 ---
 
@@ -114,13 +121,17 @@ FROM status AS s INNER JOIN projeto AS p ON s.nome_status = p.status
 GROUP BY s.nome_status
 
 
---9. Quais clientes ainda não abriram nenhum ticket de reclamação, verificando também se possuem projetos associados?
+--9. Quais clientes ainda não abriram nenhum ticket de reclamação e qual é o orçamento disponível de cada um deles? e verificando também se possuem projetos associados?
+
 
 SELECT c.id_cliente AS 'ID',
-c.nome AS 'Clientes sem ticket'
+       c.nome AS 'Clientes sem ticket',
+       c.orcamento AS 'Orcamento_Disponivel'
 FROM cliente AS c
-LEFT JOIN ticket_de_suporte AS t ON c.id_cliente = t.id_cliente WHERE t.id_ticket IS NULL
-GROUP BY c.id_cliente, c.nome
+LEFT JOIN ticket_de_suporte AS t ON c.id_cliente = t.id_cliente
+WHERE t.id_ticket IS NULL
+GROUP BY c.id_cliente, c.nome, c.orcamento;
+
 
 ---
 

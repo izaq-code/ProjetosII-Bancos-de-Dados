@@ -17,22 +17,23 @@ INSERT INTO cargo (nome_cargo) VALUES
 ('Suporte Técnico');
 
 -- Inserir dados em cliente
-INSERT INTO cliente (contato, nome) VALUES
-('31988887777', 'Empresa Alpha Ltda'),
-('31999996666', 'TechBeta Solutions'),
-('31911112222', 'Gamma Inc.'),
-('31922223333', 'Delta Corp.'),
-('31933334444', 'Omega Systems'),
-('31944445555', 'Nova Era Tech'),
-('31955556666', 'VisionWare Solutions'),
-('31966667777', 'AlphaCode Devs'),
-('31977778888', 'SkyNet AI'),
-('31988889999', 'CloudWave Corp.'),
-('31943345555', 'Nexus Solutions'),
-('31958856666', 'Vortex Tecnologia'),
-('31965567777', 'Pinnacle Group'),
-('31988878777', 'Synergy Corp'),
-('31977799999', 'Vertex Innovations');
+INSERT INTO cliente (contato, orcamento_disponivel, nome) VALUES
+('31988887777', 5000.00, 'Empresa Alpha Ltda'),
+('31999996666', 7500.50, 'TechBeta Solutions'),
+('31911112222', 6200.00, 'Gamma Inc.'),
+('31922223333', 4100.75, 'Delta Corp.'),
+('31933334444', 9800.90, 'Omega Systems'),
+('31944445555', 3000.00, 'Nova Era Tech'),
+('31955556666', 8700.30, 'VisionWare Solutions'),
+('31966667777', 9100.00, 'AlphaCode Devs'),
+('31977778888', 15000.00, 'SkyNet AI'),
+('31988889999', 7200.10, 'CloudWave Corp.'),
+('31943345555', 8600.00, 'Nexus Solutions'),
+('31958856666', 6950.00, 'Vortex Tecnologia'),
+('31965567777', 8450.20, 'Pinnacle Group'),
+('31988878777', 3800.00, 'Synergy Corp'),
+('31977799999', 9300.00, 'Vertex Innovations');
+
 
 
 -- Inserir dados em funcionario
