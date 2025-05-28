@@ -73,8 +73,8 @@ INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, sta
 ('https://github.com/empresa/marketing/docs/campanha.docx', 'Plataforma de Marketing', '2024-04-30', NULL, 'Cancelado', 'https://github.com/empresa/marketing', 15);
 
 
--- Inserir dados em ticket_reclamacao
-INSERT INTO ticket_reclamacao (descricao, data_abertura, data_fechamento, status, id_cliente, id_projeto) VALUES
+-- Inserir dados em ticket_de_suporte
+INSERT INTO ticket_de_suporte (descricao, data_abertura, data_fechamento, status, id_cliente, id_projeto) VALUES
 ('Erro na tela de login', '2024-05-01', NULL, 'Aberto', 1, 1),
 ('Falha ao gerar relatório', '2024-05-02', NULL, 'Em andamento', 2, 2),
 ('Layout desconfigurado', '2024-05-03', '2024-05-10', 'Concluído', 3, 3),
