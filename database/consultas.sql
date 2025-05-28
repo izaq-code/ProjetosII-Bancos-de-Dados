@@ -29,13 +29,69 @@ ORDER BY f.nome ASC;
 --Maria
 
 --4. Quais funcionários possuem e-mail informado e quais são seus respectivos contatos (telefone e e-mail), considerando também os cargos e etapas de projetos em que estão envolvidos?
-
+SELECT
+    f.nome AS Nome_Funcionario,
+    f.telefone AS Telefone_Funcionario,
+    f.email AS Email_Funcionario,
+    c.nome_cargo AS Cargo_Funcionario,
+    ep.nome AS Nome_Etapa_Projeto,
+    ep.descricao AS Descricao_Etapa,
+    ep.status AS Status_Etapa,
+    p.descricao AS Nome_Projeto
+FROM
+    funcionario AS f
+JOIN
+    cargo AS c ON f.nome_cargo = c.nome_cargo
+LEFT JOIN
+    etapa_projeto AS ep ON f.id_funcionario = ep.id_funcionario
+LEFT JOIN
+    projeto AS p ON ep.id_projeto = p.id_projeto
+WHERE
+    f.email IS NOT NULL AND f.email <> '';
 
 --5. Quais projetos estão com status "Em andamento", exibindo a descrição do projeto e o nome do cliente, além de detalhes de etapas ou responsáveis?
-
+SELECT
+    p.descricao AS Descricao_Projeto,
+    cli.nome AS Nome_Cliente,
+    ep.nome AS Nome_Etapa,
+    ep.descricao AS Descricao_Etapa,
+    ep.data_inicio AS Data_Inicio_Etapa,
+    ep.data_fim_prevista AS Data_Fim_Prevista_Etapa,
+    ep.status AS Status_Etapa,
+    f.nome AS Responsavel_Etapa,
+    f.email AS Email_Responsavel,
+    f.telefone AS Telefone_Responsavel
+FROM
+    projeto AS p
+JOIN
+    cliente AS cli ON p.id_cliente = cli.id_cliente
+LEFT JOIN
+    etapa_projeto AS ep ON p.id_projeto = ep.id_projeto
+LEFT JOIN
+    funcionario AS f ON ep.id_funcionario = f.id_funcionario
+WHERE
+    p.status = 'Em andamento';
 
 --6. Quais são os projetos cancelados e quais funcionários atuaram em alguma etapa desses projetos, considerando também a data e o status dessas etapas?
-
+SELECT
+    p.descricao AS Descricao_Projeto,
+    p.status AS Status_Projeto,
+    f.nome AS Nome_Funcionario,
+    f.nome_cargo AS Cargo_Funcionario,
+    ep.nome AS Nome_Etapa,
+    ep.descricao AS Descricao_Etapa,
+    ep.data_inicio AS Data_Inicio_Etapa,
+    ep.data_fim_prevista AS Data_Fim_Prevista_Etapa,
+    ep.data_fim_real AS Data_Fim_Real_Etapa,
+    ep.status AS Status_Etapa_Projeto
+FROM
+    projeto AS p
+JOIN
+    etapa_projeto AS ep ON p.id_projeto = ep.id_projeto
+JOIN
+    funcionario AS f ON ep.id_funcionario = f.id_funcionario
+WHERE
+    p.status = 'Cancelado';
 
 ---
 
