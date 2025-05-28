@@ -14,14 +14,15 @@ ORDER BY f.nome ASC;
 SELECT c.nome_cargo AS "Cargo", COUNT(f.id_funcionario) AS "Quantidade de Funcionários"
 FROM cargo c
 LEFT JOIN funcionario f ON c.nome_cargo = f.nome_cargo
-GROUP BY c.nome_cargo;
-
+GROUP BY c.nome_cargo
+ORDER BY COUNT(f.id_funcionario) DESC;
 
 --3.Qual o nome do funcionário, seu cargo e o valor do salário por hora, incluindo também informações de participação em etapas de projetos?
 
-SELECT nome as "Funcionario", nome_cargo as "Cargo", salario_hora as "Salario por h/"
-FROM funcionario
-ORDER BY nome ASC;
+SELECT f.nome as "Funcionario", f.nome_cargo as "Cargo", f.salario_hora as "Salario por h/", COUNT(e.id_etapa) AS "Projetos Associados"
+FROM funcionario f inner join etapa_projeto e ON f.id_funcionario = e.id_funcionario
+Group BY f.nome
+ORDER BY f.nome ASC;
 
 ---
 
@@ -44,7 +45,7 @@ ORDER BY nome ASC;
 
 SELECT f.id_funcionario AS 'ID funcionário',
 f.nome AS 'Nome funcionário',
-COUNT(p.id_projeto) AS 'Projetos associados'
+COUNT(e.id_etapa) AS 'Projetos associados'
 FROM funcionario AS f INNER JOIN etapa_projeto AS e ON f.id_funcionario = e.id_funcionario
 GROUP BY f.id_funcionario,
 f.nome
