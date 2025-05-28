@@ -44,7 +44,7 @@ ORDER BY nome ASC;
 
 SELECT f.id_funcionario AS 'ID funcionário',
 f.nome AS 'Nome funcionário',
-COUNT(p.id_projeto) AS 'Projetos associados'
+COUNT(e.id_etapa) AS 'Projetos associados'
 FROM funcionario AS f INNER JOIN etapa_projeto AS e ON f.id_funcionario = e.id_funcionario
 GROUP BY f.id_funcionario,
 f.nome
