@@ -45,7 +45,7 @@ CREATE TABLE projeto (
 ) ENGINE = InnoDB;
 
 -- Tabela de tickets de reclamação
-CREATE TABLE ticket_reclamacao (
+CREATE TABLE ticket_de_suporte (
     id_ticket INT AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(255) NOT NULL,
     data_abertura DATE NOT NULL,
