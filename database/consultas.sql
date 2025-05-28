@@ -53,7 +53,7 @@ WHERE
 SELECT
     p.descricao AS Descricao_Projeto,
     cli.nome AS Nome_Cliente,
-    cli.orcamento AS Orcamento_Disponivel,
+    cli.Orcamento_Disponivel AS Orcamento_Disponivel,
     ep.nome AS Nome_Etapa,
     ep.descricao AS Descricao_Etapa,
     ep.data_inicio AS Data_Inicio_Etapa,
@@ -79,7 +79,7 @@ SELECT
     p.descricao AS Descricao_Projeto,
     p.status AS Status_Projeto,
     cli.nome AS Nome_Cliente,
-    cli.orcamento AS Orcamento_Disponivel,
+    cli.Orcamento_Disponivel AS Orcamento_Disponivel,
     f.nome AS Nome_Funcionario,
     f.nome_cargo AS Cargo_Funcionario,
     ep.nome AS Nome_Etapa,
@@ -126,11 +126,11 @@ GROUP BY s.nome_status
 
 SELECT c.id_cliente AS 'ID',
        c.nome AS 'Clientes sem ticket',
-       c.orcamento AS 'Orcamento_Disponivel'
+       c.Orcamento_Disponivel AS 'Orcamento_Disponivel'
 FROM cliente AS c
 LEFT JOIN ticket_de_suporte AS t ON c.id_cliente = t.id_cliente
 WHERE t.id_ticket IS NULL
-GROUP BY c.id_cliente, c.nome, c.orcamento;
+GROUP BY c.id_cliente, c.nome, c.Orcamento_Disponivel;
 
 
 ---
