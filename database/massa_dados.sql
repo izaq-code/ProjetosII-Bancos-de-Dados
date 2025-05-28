@@ -23,11 +23,17 @@ INSERT INTO cliente (contato, nome) VALUES
 ('31911112222', 'Gamma Inc.'),
 ('31922223333', 'Delta Corp.'),
 ('31933334444', 'Omega Systems'),
+('31944445555', 'Nova Era Tech'),
+('31955556666', 'VisionWare Solutions'),
+('31966667777', 'AlphaCode Devs'),
+('31977778888', 'SkyNet AI'),
+('31988889999', 'CloudWave Corp.'),
 ('31943345555', 'Nexus Solutions'),
 ('31958856666', 'Vortex Tecnologia'),
 ('31965567777', 'Pinnacle Group'),
 ('31988878777', 'Synergy Corp'),
 ('31977799999', 'Vertex Innovations');
+
 
 -- Inserir dados em funcionario
 INSERT INTO funcionario (nome, telefone, salario_hora, email, nome_cargo) VALUES
@@ -36,11 +42,17 @@ INSERT INTO funcionario (nome, telefone, salario_hora, email, nome_cargo) VALUES
 ('Carlos Pereira', '31988880003', 50.00, 'carlos@empresa.com', 'Analista de Qualidade'),
 ('Ana Souza', '31988880004', 40.00, 'ana@empresa.com', 'Designer'),
 ('Lucas Rocha', '31988880005', 35.00, 'lucas@empresa.com', 'Suporte Técnico'),
+('Bruno Costa', '31988880006', 55.00, 'bruno@empresa.com', 'Desenvolvedor'),
+('Fernanda Lima', '31988880007', 65.00, 'fernanda@empresa.com', 'Gerente de Projetos'),
+('Ricardo Alves', '31988880008', 48.00, 'ricardo@empresa.com', 'Analista de Qualidade'),
+('Juliana Mota', '31988880009', 42.00, 'juliana@empresa.com', 'Designer'),
+('Thiago Martins', '31988880010', 38.00, 'thiago@empresa.com', 'Suporte Técnico'),
 ('Julia Lima', '31988880011', 42.00, 'fernanda@empresa.com', 'Desenvolvedor'),
 ('Rafael Martins', '31988880012', 58.00, 'rafael@empresa.com', 'Gerente de Projetos'),
 ('Beatriz Santos', '31988880013', 48.00, 'beatriz@empresa.com', 'Analista de Qualidade'),
 ('Kaio Barros', '31988880014', 38.00, 'thiago@empresa.com', 'Designer'),
 ('Patrícia Ferreira', '31988880015', 36.00, 'patricia@empresa.com', 'Suporte Técnico');
+
 
 -- Inserir dados em projeto 
 INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, status, diretorio_projeto, id_cliente) VALUES
@@ -49,11 +61,17 @@ INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, sta
 ('https://github.com/empresa/educacional/docs/projeto_final.docx', 'Plataforma Educacional', '2023-11-01', '2024-03-20', 'Concluído', 'https://github.com/empresa/educacional', 3),
 ('https://github.com/empresa/rh/docs/analise.docx', 'Sistema de RH', '2024-03-01', NULL, 'Em andamento', 'https://github.com/empresa/rh', 4),
 ('https://github.com/empresa/site/docs/design_inicial.docx', 'Website Institucional', '2024-04-10', NULL, 'Aberto', 'https://github.com/empresa/site', 5),
+('https://github.com/empresa/erp/docs/doc_erp.docx', 'Sistema ERP Completo', '2024-05-01', NULL, 'Em andamento', 'https://github.com/empresa/erp', 6),
+('https://github.com/empresa/appfinanceiro/docs/requisitos_financeiro.docx', 'App Financeiro Pessoal', '2024-05-05', NULL, 'Aberto', 'https://github.com/empresa/appfinanceiro', 7),
+('https://github.com/empresa/saudeai/docs/proposta.docx', 'Plataforma Saúde AI', '2024-05-10', NULL, 'Aberto', 'https://github.com/empresa/saudeai', 8),
+('https://github.com/empresa/rede_social/docs/redesocial.docx', 'Rede Social Corporativa', '2024-05-12', NULL, 'Em andamento', 'https://github.com/empresa/rede_social', 9),
+('https://github.com/empresa/cloud/docs/infraestrutura.docx', 'Infraestrutura em Nuvem', '2024-05-15', NULL, 'Aberto', 'https://github.com/empresa/cloud', 10),
 ('https://github.com/empresa/logistica/docs/escopo.docx', 'Sistema de Logística', '2024-04-15', NULL, 'Aberto', 'https://github.com/empresa/logistica', 11),
 ('https://github.com/empresa/comercial/docs/plano.docx', 'Sistema Comercial', '2024-05-01', NULL, 'Em andamento', 'https://github.com/empresa/comercial', 12),
 ('https://github.com/empresa/financeiro/docs/relatorio.docx', 'Sistema Financeiro', '2024-03-20', '2024-05-10', 'Concluído', 'https://github.com/empresa/financeiro', 13),
 ('https://github.com/empresa/suporte/docs/manual.docx', 'Sistema de Suporte Técnico', '2024-05-05', NULL, 'Aberto', 'https://github.com/empresa/suporte', 14),
 ('https://github.com/empresa/marketing/docs/campanha.docx', 'Plataforma de Marketing', '2024-04-30', NULL, 'Cancelado', 'https://github.com/empresa/marketing', 15);
+
 
 -- Inserir dados em ticket_reclamacao
 INSERT INTO ticket_reclamacao (descricao, data_abertura, data_fechamento, status, id_cliente, id_projeto) VALUES
@@ -62,11 +80,16 @@ INSERT INTO ticket_reclamacao (descricao, data_abertura, data_fechamento, status
 ('Layout desconfigurado', '2024-05-03', '2024-05-10', 'Concluído', 3, 3),
 ('Problema no cadastro de funcionários', '2024-05-05', NULL, 'Aberto', 4, 4),
 ('Menu não responde', '2024-05-06', NULL, 'Aberto', 5, 5),
-('https://github.com/empresa/logistica/docs/escopo.docx', 'Sistema de Logística', '2024-04-15', NULL, 'Aberto', 'https://github.com/empresa/logistica', 11),
-('https://github.com/empresa/comercial/docs/plano.docx', 'Sistema Comercial', '2024-05-01', NULL, 'Em andamento', 'https://github.com/empresa/comercial', 12),
-('https://github.com/empresa/financeiro/docs/relatorio.docx', 'Sistema Financeiro', '2024-03-20', '2024-05-10', 'Concluído', 'https://github.com/empresa/financeiro', 13),
-('https://github.com/empresa/suporte/docs/manual.docx', 'Sistema de Suporte Técnico', '2024-05-05', NULL, 'Aberto', 'https://github.com/empresa/suporte', 14),
-('https://github.com/empresa/marketing/docs/campanha.docx', 'Plataforma de Marketing', '2024-04-30', NULL, 'Cancelado', 'https://github.com/empresa/marketing', 15);
+('Erro ao salvar cadastro', '2024-05-11', NULL, 'Aberto', 6, 6),
+('Botão de exportar não funciona', '2024-05-12', NULL, 'Em andamento', 7, 7),
+('Gráficos não aparecem no dashboard', '2024-05-13', NULL, 'Aberto', 8, 8),
+('Não é possível adicionar novos usuários', '2024-05-14', NULL, 'Aberto', 9, 9),
+('Falha na autenticação OAuth', '2024-05-15', NULL, 'Aberto', 10, 10),
+('Erro ao carregar dashboard', '2024-05-07', NULL, 'Aberto', 11, 11),
+('Sistema lento durante consultas', '2024-05-08', NULL, 'Em andamento', 12, 12),
+('Problemas com autenticação', '2024-05-09', '2024-05-15', 'Concluído', 13, 13),
+('Falha no envio de notificações', '2024-05-10', NULL, 'Aberto', 14, 14),
+('Relatório com dados incorretos', '2024-05-11', NULL, 'Aberto', 15, 15);
 
 -- Inserir dados em etapa_projeto
 INSERT INTO etapa_projeto (nome, descricao, data_inicio, data_fim_prevista, data_fim_real, status, id_funcionario, id_projeto) VALUES
