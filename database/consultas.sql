@@ -2,12 +2,12 @@
 
 --1. Quais são todos os funcionários, seus dados e informações de projeto e cargo, agrupados por cargo, ordenados alfabeticamente?
 
-SELECT f.nome AS Funcionario, f.nome_cargo AS Cargo, p.id_projeto
+SELECT f.nome AS Funcionario,f.telefone,f.email,f.salario_hora,f.nome_cargo AS Cargo,p.id_projeto,p.descricao AS Projeto
 FROM funcionario f
 INNER JOIN etapa_projeto ep ON f.id_funcionario = ep.id_funcionario
 INNER JOIN projeto p ON ep.id_projeto = p.id_projeto
-Group BY f.nome_cargo,
-ORDER BY f.nome ASC;
+ORDER BY f.nome_cargo ASC, f.nome ASC;
+
 
 --2. Exibir a quantidade de funcionários em cada cargo, agrupando por nome do cargo, e ordenando do maior para o menor número de funcionários.
 
@@ -19,10 +19,12 @@ ORDER BY COUNT(f.id_funcionario) DESC;
 
 --3.Qual o nome do funcionário, seu cargo e o valor do salário por hora, incluindo também informações de participação em etapas de projetos?
 
-SELECT f.nome as "Funcionario", f.nome_cargo as "Cargo", f.salario_hora as "Salario por h/", COUNT(e.id_etapa) AS "Projetos Associados"
-FROM funcionario f inner join etapa_projeto e ON f.id_funcionario = e.id_funcionario
-Group BY f.nome
+SELECT f.nome AS "Funcionario",f.nome_cargo AS "Cargo",f.salario_hora AS "Salario por h/",COUNT(DISTINCT e.id_etapa) AS "Qtd Etapas Envolvido"
+FROM funcionario f
+LEFT JOIN etapa_projeto e ON f.id_funcionario = e.id_funcionario
+GROUP BY f.id_funcionario, f.nome, f.nome_cargo, f.salario_hora
 ORDER BY f.nome ASC;
+
 
 ---
 
