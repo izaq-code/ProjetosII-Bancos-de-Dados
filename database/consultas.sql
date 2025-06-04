@@ -54,23 +54,24 @@ WHERE
 
 SELECT
     p.descricao AS Descricao_Projeto,
+    p.status AS Status_Projeto,
     cli.nome AS Nome_Cliente,
     cli.Orcamento_Disponivel AS Orcamento_Disponivel,
+    f.nome AS Nome_Funcionario,
+    f.nome_cargo AS Cargo_Funcionario,
     ep.nome AS Nome_Etapa,
     ep.descricao AS Descricao_Etapa,
     ep.data_inicio AS Data_Inicio_Etapa,
     ep.data_fim_prevista AS Data_Fim_Prevista_Etapa,
-    ep.status AS Status_Etapa,
-    f.nome AS Responsavel_Etapa,
-    f.email AS Email_Responsavel,
-    f.telefone AS Telefone_Responsavel
+    ep.data_fim_real AS Data_Fim_Real_Etapa,
+    ep.status AS Status_Etapa_Projeto
 FROM
     projeto AS p
 JOIN
     cliente AS cli ON p.id_cliente = cli.id_cliente
-LEFT JOIN
+JOIN
     etapa_projeto AS ep ON p.id_projeto = ep.id_projeto
-LEFT JOIN
+JOIN
     funcionario AS f ON ep.id_funcionario = f.id_funcionario
 WHERE
     p.status = 'Em andamento';
