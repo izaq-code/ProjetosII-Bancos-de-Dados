@@ -58,12 +58,12 @@ INSERT INTO funcionario (nome, telefone, salario_hora, email, nome_cargo) VALUES
 ('Beatriz Santos', '31988880013', 48.00, 'beatriz@empresa.com', 'Analista de Qualidade'),
 ('Kaio Barros', '31988880014', 38.00, 'thiago@empresa.com', 'Designer'),
 ('Patrícia Ferreira', '31988880015', 36.00, 'patricia@empresa.com', 'Suporte Técnico'),
-('Ana Souza', '31999991111', 50.00, 'ana@email.com', 'Desenvolvedor'),
-('Bruno Lima', '31988882222', 40.00, NULL, 'Gerente de Projetos'),
-('Carla Mendes', '31977773333', 60.00, 'carla@email.com', 'Analista de Suporte'),
-('Daniel Rocha', '31966664444', 35.00, NULL, 'Administrador de Banco de Dados'),
-('Eduardo Santos', '31955555555', 55.00, 'eduardo@email.com', 'Designer UX');
-
+('Thiago Melo', '31987654331', 50.00, 'thiago@empresa.com', 'Desenvolvedor'),
+('Patrícia Xavier', '31987654332', 60.00, 'patricia@empresa.com', 'Gerente de Projetos'),
+('Diego Fernandes', '31987654333', 45.00, 'diego@empresa.com', 'Analista de Qualidade'),
+('Camila Ribeiro', '31987654334', 55.00, 'camila@empresa.com', 'Designer'),
+('Rodrigo Pires', '31987654335', 40.00, 'rodrigo@empresa.com', 'Suporte Técnico'),
+('Pires', '31987654335', 20.00, NULL , 'Designer');
 -- Inserir dados em projeto 
 INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, status, diretorio_projeto, id_cliente) VALUES
 ('https://github.com/empresa/vendas/docs/requisitos.docx', 'Sistema de Vendas Online', '2024-01-10', NULL, 'Em andamento', 'https://github.com/empresa/vendas', 1),
@@ -81,11 +81,11 @@ INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, sta
 ('https://github.com/empresa/financeiro/docs/relatorio.docx', 'Sistema Financeiro', '2024-03-20', '2024-05-10', 'Concluído', 'https://github.com/empresa/financeiro', 13),
 ('https://github.com/empresa/suporte/docs/manual.docx', 'Sistema de Suporte Técnico', '2024-05-05', NULL, 'Aberto', 'https://github.com/empresa/suporte', 14),
 ('https://github.com/empresa/marketing/docs/campanha.docx', 'Plataforma de Marketing', '2024-04-30', NULL, 'Cancelado', 'https://github.com/empresa/marketing', 15),
-('/docs/projetoA.pdf', 'Desenvolvimento de software', '2024-01-10', '2025-01-10', 'Em andamento', '/projetos/A', 1),
-('/docs/projetoB.pdf', 'Pesquisa de mercado', '2024-05-15', NULL, 'Pendente', '/projetos/B', 2),
-('/docs/projetoC.pdf', 'Infraestrutura de TI', '2024-06-20', NULL, 'Em andamento', '/projetos/C', 3),
-('/docs/projetoD.pdf', 'Treinamento corporativo', '2024-09-01', '2025-03-01', 'Concluído', '/projetos/D', 4),
-('/docs/projetoE.pdf', 'Expansão internacional', '2025-01-05', NULL, 'Atrasado', '/projetos/E', 5);
+('/docs/proj1.pdf', 'Sistema de Vendas', '2024-01-10', NULL, 'Aberto', '/dir/proj1', 1),
+('/docs/proj2.pdf', 'Aplicativo Móvel', '2024-02-15', NULL, 'Em andamento', '/dir/proj2', 2),
+('/docs/proj3.pdf', 'Site Institucional', '2024-03-01', NULL, 'Concluído', '/dir/proj3', 3),
+('/docs/proj4.pdf', 'Sistema de Estoque', '2024-03-10', NULL, 'Aberto', '/dir/proj4', 1),
+('/docs/proj5.pdf', 'Plataforma EAD', '2024-04-01', NULL, 'Cancelado', '/dir/proj5', 2);
 
 
 -- Inserir dados em ticket_de_suporte
@@ -105,11 +105,11 @@ INSERT INTO ticket_de_suporte (descricao, data_abertura, data_fechamento, status
 ('Problemas com autenticação', '2024-05-09', '2024-05-15', 'Concluído', 13, 13),
 ('Falha no envio de notificações', '2024-05-10', NULL, 'Aberto', 14, 14),
 ('Relatório com dados incorretos', '2024-05-11', NULL, 'Aberto', 15, 15),
-('Erro no login do sistema', '2024-01-05', '2024-01-10', 'Pendente', 1, 1),
-('Problemas de integração com API', '2024-03-12', '2024-03-20', 'Em andamento', 2, 2),
-('Banco de dados lento', '2024-05-18', '2024-05-25', 'Cancelado', 3, 3),
-('Solicitação de melhoria na interface', '2024-07-07', '2024-07-15', 'Concluído', 4, 4),
-('Bug crítico impedindo operações', '2024-09-22', '2024-10-01', 'Atrasado', 5, 5);
+('Erro no login', '2024-05-01', NULL, 'Aberto', 1, 1),
+('Página não carrega', '2024-05-02', NULL, 'Em andamento', 2, 2),
+('Bug no relatório', '2024-05-03', NULL, 'Concluído', 3, 3),
+('Dúvida sobre uso', '2024-05-04', NULL, 'Aberto', 1, 4),
+('Problema no cadastro', '2024-05-05', NULL, 'Fechado', 2, 5);
 
 -- Inserir dados em etapa_projeto
 INSERT INTO etapa_projeto (nome, descricao, data_inicio, data_fim_prevista, data_fim_real, status, id_funcionario, id_projeto) VALUES
@@ -123,8 +123,9 @@ INSERT INTO etapa_projeto (nome, descricao, data_inicio, data_fim_prevista, data
 ('Testes de Integração', 'Testar funcionalidades integradas', '2024-05-20', '2024-06-10', NULL, 'Aberto', 12, 13),
 ('Documentação', 'Elaboração dos manuais', '2024-06-01', '2024-06-20', NULL, 'Aberto', 15, 14),
 ('Deploy', 'Implantação em produção', '2024-06-15', '2024-06-25', NULL, 'Aberto', 15, 14),
-('Planejamento', 'Definição do escopo', '2024-01-15', '2024-02-01', NULL, 'Em andamento', 1, 1),
-('Desenvolvimento', 'Implementação do código', '2024-06-01', '2024-12-01', NULL, 'Pendente', 3, 2),
-('Infraestrutura', 'Configuração de servidores', '2024-07-10', '2024-10-10', NULL, 'Em andamento', NULL, 3),
-('Treinamento', 'Capacitação dos funcionários', '2024-10-05', '2025-02-01', '2025-02-20', 'Concluído', 2, 4),
-('Lançamento', 'Divulgação do produto', '2025-02-20', '2025-04-01', NULL, 'Atrasado', NULL, 5);
+('Planejamento', 'Definir escopo', '2024-03-10', '2024-03-20', NULL, 'Aberto', 1, 3),
+('Execução', 'Implementação', '2024-03-21', '2024-04-10', NULL, 'Em andamento', 2, 3),
+('Revisão', 'Avaliação do projeto', '2024-04-11', '2024-04-20', NULL, 'Fechado', 3, 3),
+('Infraestrutura', 'Configuração de servidores', '2024-04-01', '2024-04-10', NULL, 'Aberto', 6, 4),
+('Lançamento', 'Divulgação ao cliente', '2024-04-11', '2024-04-15', NULL, 'Concluído', 21, 5);
+

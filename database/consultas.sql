@@ -139,8 +139,23 @@ GROUP BY c.id_cliente, c.nome, c.Orcamento_Disponivel;
 
 --10. Quais projetos tiveram etapas iniciadas entre duas datas específicas (ex: 2024-01-01 e 2025-01-01), considerando também o nome do funcionário responsável e o status da etapa?
 
+SELECT p.descricao AS projeto, e.nome AS etapa, e.data_inicio 
+FROM projeto p
+JOIN etapa_projeto e ON p.id_projeto = e.id_projeto
+WHERE e.data_inicio BETWEEN '2024-01-01' AND '2025-01-01'
+ORDER BY e.data_inicio;
 
 --11. Quais funcionários possuem salário por hora maior que a média da empresa, incluindo informações sobre cargo e participação em projetos?
 
+SELECT nome, salario_hora 
+FROM funcionario
+WHERE salario_hora > (SELECT AVG(salario_hora) FROM funcionario)
+ORDER BY salario_hora DESC;
 
 --12. Quais são os projetos que têm etapas atribuídas a funcionários cujo e-mail não foi informado (NULL)?
+
+SELECT p.descricao AS projeto, f.nome AS funcionario, f.email
+FROM projeto p
+JOIN etapa_projeto e ON p.id_projeto = e.id_projeto
+JOIN funcionario f ON e.id_funcionario = f.id_funcionario
+WHERE f.email IS NULL;
