@@ -8,7 +8,6 @@ INNER JOIN etapa_projeto ep ON f.id_funcionario = ep.id_funcionario
 INNER JOIN projeto p ON ep.id_projeto = p.id_projeto
 ORDER BY f.nome_cargo ASC, f.nome ASC;
 
-
 --2. Exibir a quantidade de funcionários em cada cargo, agrupando por nome do cargo, e ordenando do maior para o menor número de funcionários.
 
 SELECT c.nome_cargo AS "Cargo", COUNT(f.id_funcionario) AS "Quantidade de Funcionários"
@@ -25,12 +24,12 @@ LEFT JOIN etapa_projeto e ON f.id_funcionario = e.id_funcionario
 GROUP BY f.id_funcionario, f.nome, f.nome_cargo, f.salario_hora
 ORDER BY f.nome ASC;
 
-
 ---
 
 --Maria
 
 --4. Quais funcionários possuem e-mail informado e quais são seus respectivos contatos (telefone e e-mail), considerando também os cargos e etapas de projetos em que estão envolvidos?
+
 SELECT
     f.nome AS Nome_Funcionario,
     f.telefone AS Telefone_Funcionario,
@@ -52,6 +51,7 @@ WHERE
     f.email IS NOT NULL AND f.email <> '';
 
 --5. Quais projetos estão com status "Em andamento", exibindo a descrição do projeto, o nome do cliente, o orçamento disponível e os detalhes das etapas ou dos responsáveis?
+
 SELECT
     p.descricao AS Descricao_Projeto,
     cli.nome AS Nome_Cliente,
@@ -75,8 +75,8 @@ LEFT JOIN
 WHERE
     p.status = 'Em andamento';
 
-
 --6. Quais são os projetos cancelados, quem foram os funcionários que participaram de suas etapas, e qual era o orçamento disponível do cliente responsável por cada projeto?
+
 SELECT
     p.descricao AS Descricao_Projeto,
     p.status AS Status_Projeto,
@@ -101,7 +101,6 @@ JOIN
 WHERE
     p.status = 'Cancelado';
 
-
 ---
 
 --Felipe
@@ -125,7 +124,6 @@ GROUP BY s.nome_status
 
 --9. Quais clientes ainda não abriram nenhum ticket de reclamação e qual é o orçamento disponível de cada um deles? e verificando também se possuem projetos associados?
 
-
 SELECT c.id_cliente AS 'ID',
        c.nome AS 'Clientes sem ticket',
        c.Orcamento_Disponivel AS 'Orcamento_Disponivel'
@@ -134,30 +132,31 @@ LEFT JOIN ticket_de_suporte AS t ON c.id_cliente = t.id_cliente
 WHERE t.id_ticket IS NULL
 GROUP BY c.id_cliente, c.nome, c.Orcamento_Disponivel;
 
-
 ---
 
 --Matheus
 
 --10. Quais projetos tiveram etapas iniciadas entre duas datas específicas (ex: 2024-01-01 e 2025-01-01), considerando também o nome do funcionário responsável e o status da etapa?
 
-SELECT p.descricao AS projeto, e.nome AS etapa, e.data_inicio 
+SELECT p.id_projeto, p.descricao AS projeto, e.nome AS etapa, e.data_inicio, e.status, f.nome AS funcionario_responsavel 
 FROM projeto p
 JOIN etapa_projeto e ON p.id_projeto = e.id_projeto
+LEFT JOIN funcionario f ON e.id_funcionario = f.id_funcionario
 WHERE e.data_inicio BETWEEN '2024-01-01' AND '2025-01-01'
 ORDER BY e.data_inicio;
 
 --11. Quais funcionários possuem salário por hora maior que a média da empresa, incluindo informações sobre cargo e participação em projetos?
 
-SELECT nome, salario_hora 
-FROM funcionario
-WHERE salario_hora > (SELECT AVG(salario_hora) FROM funcionario)
-ORDER BY salario_hora DESC;
+SELECT f.nome, f.salario_hora, f.nome_cargo, COUNT(e.id_etapa) AS participacao_projetos
+FROM funcionario f
+LEFT JOIN etapa_projeto e ON f.id_funcionario = e.id_funcionario
+WHERE f.salario_hora > (SELECT AVG(salario_hora) FROM funcionario)
+GROUP BY f.id_funcionario, f.nome, f.salario_hora, f.nome_cargo
 
 --12. Quais são os projetos que têm etapas atribuídas a funcionários cujo e-mail não foi informado (NULL)?
 
-SELECT p.descricao AS projeto, f.nome AS funcionario, f.email
+SELECT p.id_projeto, p.descricao AS projeto, e.nome AS etapa, f.nome AS funcionario, f.email 
 FROM projeto p
 JOIN etapa_projeto e ON p.id_projeto = e.id_projeto
-JOIN funcionario f ON e.id_funcionario = f.id_funcionario
-WHERE f.email IS NULL;
+LEFT JOIN funcionario f ON e.id_funcionario = f.id_funcionario
+WHERE f.email IS NULL OR e.id_funcionario IS NULL;
