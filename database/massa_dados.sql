@@ -124,8 +124,8 @@ INSERT INTO etapa_projeto (nome, descricao, data_inicio, data_fim_prevista, data
 ('Documentação', 'Elaboração dos manuais', '2024-06-01', '2024-06-20', NULL, 'Aberto', 15, 14),
 ('Deploy', 'Implantação em produção', '2024-06-15', '2024-06-25', NULL, 'Aberto', 15, 14),
 ('Planejamento', 'Definir escopo', '2024-03-10', '2024-03-20', NULL, 'Aberto', 1, 3),
-('Execução', 'Implementação', '2024-03-21', '2024-04-10', NULL, 'Em andamento', 2, 3),
-('Revisão', 'Avaliação do projeto', '2024-04-11', '2024-04-20', NULL, 'Fechado', 3, 3),
+('Execução', 'Implementação', '2024-03-21', '2024-04-10', NULL, 'Fechado', 20, 3),
+('Revisão', 'Avaliação do projeto', '2024-04-11', '2024-04-20', NULL, 'Fechado', 15, 3),
 ('Infraestrutura', 'Configuração de servidores', '2024-04-01', '2024-04-10', NULL, 'Aberto', 6, 4),
 ('Lançamento', 'Divulgação ao cliente', '2024-04-11', '2024-04-15', NULL, 'Concluído', 21, 5);
 
