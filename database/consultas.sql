@@ -114,6 +114,7 @@ COUNT(e.id_etapa) AS 'Projetos associados'
 FROM funcionario AS f INNER JOIN etapa_projeto AS e ON f.id_funcionario = e.id_funcionario
 GROUP BY f.id_funcionario,
 f.nome
+ORDER BY COUNT(e.id_etapa)
 
 --8. Para cada status existente, quantos projetos estão cadastrados, incluindo somente os status que possuem mais de 1 projeto?
 aaa
@@ -121,17 +122,21 @@ SELECT s.nome_status AS 'Status',
 COUNT(p.id_projeto) AS 'Projetos nesse status'
 FROM status AS s INNER JOIN projeto AS p ON s.nome_status = p.status
 GROUP BY s.nome_status
+HAVING COUNT(p.id_projeto) > 1
 
 
 --9. Quais clientes ainda não abriram nenhum ticket de reclamação e qual é o orçamento disponível de cada um deles? e verificando também se possuem projetos associados?
 aaa
 SELECT c.id_cliente AS 'ID',
        c.nome AS 'Clientes sem ticket',
-       c.Orcamento_Disponivel AS 'Orcamento_Disponivel'
+       c.Orcamento_Disponivel AS 'Orcamento_Disponivel',
+	   p.id_projeto AS 'Projeto associado',
+	   p.descricao AS 'Descrição do projeto'
 FROM cliente AS c
 LEFT JOIN ticket_de_suporte AS t ON c.id_cliente = t.id_cliente
+LEFT JOIN projeto AS p ON c.id_cliente = p.id_cliente
 WHERE t.id_ticket IS NULL
-GROUP BY c.id_cliente, c.nome, c.Orcamento_Disponivel;
+GROUP BY c.id_cliente, c.nome, c.Orcamento_Disponivel, p.id_projeto, p.descricao;
 
 ---
 
