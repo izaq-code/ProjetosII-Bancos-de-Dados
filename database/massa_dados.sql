@@ -64,6 +64,7 @@ INSERT INTO funcionario (nome, telefone, salario_hora, email, nome_cargo) VALUES
 ('Camila Ribeiro', '31987654334', 55.00, 'camila@empresa.com', 'Designer'),
 ('Rodrigo Pires', '31987654335', 40.00, 'rodrigo@empresa.com', 'Suporte Técnico'),
 ('Pires', '31987654335', 20.00, NULL , 'Designer');
+
 -- Inserir dados em projeto 
 INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, status, diretorio_projeto, id_cliente) VALUES
 ('https://github.com/empresa/vendas/docs/requisitos.docx', 'Sistema de Vendas Online', '2024-01-10', NULL, 'Em andamento', 'https://github.com/empresa/vendas', 1),
@@ -87,10 +88,9 @@ INSERT INTO projeto (caminho_doc, descricao, data_abertura, data_fechamento, sta
 ('/docs/proj4.pdf', 'Sistema de Estoque', '2024-03-10', NULL, 'Aberto', '/dir/proj4', 1),
 ('/docs/proj5.pdf', 'Plataforma EAD', '2024-04-01', NULL, 'Cancelado', '/dir/proj5', 2);
 
-
 -- Inserir dados em ticket_de_suporte
 INSERT INTO ticket_de_suporte (descricao, data_abertura, data_fechamento, status, id_cliente, id_projeto) VALUES
-('Erro na tela de login', '2024-05-01', NULL, 'Aberto', 1, 1),
+('Erro na tela de login', '2024-05-01', NULL, 'Aberto', 2, 1),
 ('Falha ao gerar relatório', '2024-05-02', NULL, 'Em andamento', 2, 2),
 ('Layout desconfigurado', '2024-05-03', '2024-05-10', 'Concluído', 3, 3),
 ('Problema no cadastro de funcionários', '2024-05-05', NULL, 'Aberto', 4, 4),
@@ -105,10 +105,10 @@ INSERT INTO ticket_de_suporte (descricao, data_abertura, data_fechamento, status
 ('Problemas com autenticação', '2024-05-09', '2024-05-15', 'Concluído', 13, 13),
 ('Falha no envio de notificações', '2024-05-10', NULL, 'Aberto', 14, 14),
 ('Relatório com dados incorretos', '2024-05-11', NULL, 'Aberto', 15, 15),
-('Erro no login', '2024-05-01', NULL, 'Aberto', 1, 1),
+('Erro no login', '2024-05-01', NULL, 'Aberto', 2, 1),
 ('Página não carrega', '2024-05-02', NULL, 'Em andamento', 2, 2),
 ('Bug no relatório', '2024-05-03', NULL, 'Concluído', 3, 3),
-('Dúvida sobre uso', '2024-05-04', NULL, 'Aberto', 1, 4),
+('Dúvida sobre uso', '2024-05-04', NULL, 'Aberto', 2, 4),
 ('Problema no cadastro', '2024-05-05', NULL, 'Fechado', 2, 5);
 
 -- Inserir dados em etapa_projeto
